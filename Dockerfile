@@ -18,7 +18,7 @@ ARG TORCHAUDIO_VERSION
 ARG ROCM_VERSION
 
 LABEL org.opencontainers.image.title="rocm-torch" \
-      org.opencontainers.image.description="Minimal PyTorch + ROCm for AMD RDNA 4 GPUs — no ROCm SDK needed" \
+      org.opencontainers.image.description="Minimal PyTorch + ROCm for AMD RDNA 4 GPUs - no ROCm SDK needed" \
       org.opencontainers.image.source="https://github.com/CarbonNeuron/rocm-torch" \
       org.opencontainers.image.licenses="MIT" \
       org.opencontainers.image.authors="CarbonNeuron" \
