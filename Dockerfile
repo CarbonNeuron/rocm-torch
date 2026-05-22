@@ -1,5 +1,6 @@
 # rocm-torch — Minimal PyTorch + ROCm base image for AMD RDNA 4 GPUs
-# No ROCm SDK required — PyTorch wheels bundle their own runtime.
+# ROCm dev base provides the kernel compiler for JIT compilation.
+# PyTorch wheels bundle their own ROCm user-space runtime.
 # https://github.com/CarbonNeuron/rocm-torch
 
 ARG UBUNTU_VERSION=24.04
@@ -9,7 +10,7 @@ ARG TORCHVISION_VERSION=0.27.0
 ARG TORCHAUDIO_VERSION=2.11.0
 ARG ROCM_VERSION=7.2
 
-FROM ubuntu:${UBUNTU_VERSION} AS base
+FROM rocm/dev-ubuntu-24.04:7.1 AS base
 
 ARG PYTHON_VERSION
 ARG TORCH_VERSION
@@ -18,7 +19,7 @@ ARG TORCHAUDIO_VERSION
 ARG ROCM_VERSION
 
 LABEL org.opencontainers.image.title="rocm-torch" \
-      org.opencontainers.image.description="Minimal PyTorch + ROCm for AMD RDNA 4 GPUs - no ROCm SDK needed" \
+      org.opencontainers.image.description="Minimal PyTorch + ROCm for AMD RDNA 4 GPUs" \
       org.opencontainers.image.source="https://github.com/CarbonNeuron/rocm-torch" \
       org.opencontainers.image.licenses="MIT" \
       org.opencontainers.image.authors="CarbonNeuron" \
